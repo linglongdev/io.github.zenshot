@@ -1,0 +1,54 @@
+From 4934d10abeebab3f5774544b5af89e9389225e16 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Sat, 10 Aug 2024 16:05:30 +0800
+Subject: [PATCH] install
+
+---
+ zenshot.desktop | 11 +++++++++++
+ zenshot.pro     |  9 ++++++++-
+ 2 files changed, 19 insertions(+), 1 deletion(-)
+ create mode 100644 zenshot.desktop
+
+diff --git a/zenshot.desktop b/zenshot.desktop
+new file mode 100644
+index 0000000..568f141
+--- /dev/null
++++ b/zenshot.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=zenshot
++Name=zenshot
++Name[zh_CN]=zenshot
++Icon=zenshot
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=zenshot
++Version=1.0
+\ No newline at end of file
+diff --git a/zenshot.pro b/zenshot.pro
+index 5f8d41b..62da801 100644
+--- a/zenshot.pro
++++ b/zenshot.pro
+@@ -264,9 +264,16 @@ macx {
+ 
+ # Default rules for deployment.
+ qnx: target.path = /tmp/$${TARGET}/bin
+-else: unix:!android: target.path = /opt/$${TARGET}/bin
++else: unix:!android: #target.path = /opt/$${TARGET}/bin
+ !isEmpty(target.path): INSTALLS += target
+ 
++target.path = $$PREFIX/bin
++desktop.files = zenshot.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons
++icons.files = zenshot.png 
++
++INSTALLS += target desktop icons
+ RESOURCES += \
+     main.qrc
+ 
+-- 
+2.43.4
+

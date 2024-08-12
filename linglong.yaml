@@ -1,0 +1,30 @@
+version: "1"
+
+package:
+  id: io.github.zenshot
+  name: zenshot
+  version: 0.0.0.1
+  kind: app
+  description: |
+    A screenshot tool
+
+command:
+  - /opt/apps/io.github.zenshot/files/bin/zenshot
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/easysoft/zenshot.git
+    version: master
+    commit: 71cb24fce01f09330bc0b7975b11faee38353853
+
+build: |
+  cd /project/linglong/sources/zenshot.git
+  git apply ../../../0001-install.patch
+  git apply ../../../0002-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install
+
