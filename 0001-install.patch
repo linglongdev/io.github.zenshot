@@ -1,0 +1,39 @@
+From fccb42b23215a633544dc04257025cac8d2d621b Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Sat, 10 Aug 2024 15:59:18 +0800
+Subject: [PATCH] install
+
+---
+ core/screenlist.h | 2 +-
+ shapes/line.cpp   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/core/screenlist.h b/core/screenlist.h
+index 2c6020b..a469d65 100644
+--- a/core/screenlist.h
++++ b/core/screenlist.h
+@@ -21,7 +21,7 @@
+ 
+ #include <QPainter>
+ #include <QRect>
+-
++#include <QPainterPath>
+ #include "core/screeninfo.h"
+ 
+ #include <memory>
+diff --git a/shapes/line.cpp b/shapes/line.cpp
+index a70586b..fbc0c21 100644
+--- a/shapes/line.cpp
++++ b/shapes/line.cpp
+@@ -19,7 +19,7 @@
+ #include "line.h"
+ #include "screen/workspace.h"
+ #include "core/utils.h"
+-
++#include <QPainterPath>
+ #include <QtMath>
+ #include <QRegion>
+ 
+-- 
+2.43.4
+
